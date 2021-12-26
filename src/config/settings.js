@@ -39,7 +39,7 @@ const settings = {
             ABI: ZombieCryptABI,
           },
           CryptoZombiesContract: {
-            Address: "0x5f7BA84c7984Aa5ef329B66E313498F0aEd6d23A",
+            Address: "0x2a5AEf99CFa510f8bC57b99E22D97d92483D8053",
             ABI: CryptoZombiesABI,
           },
         },
