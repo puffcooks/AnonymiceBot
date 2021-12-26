@@ -5,59 +5,43 @@
 # © 2021                                                                       #
 ###############################################################################*/
 
-const AnonymiceABI = require("../contracts/mice_abi.json");
-const CheethABI = require("../contracts/cheeth_abi.json");
-const AnonymiceBreedingABI = require("../contracts/baby_mice_abi.json");
+const ZombieCryptABI = require("../contracts/zombiecrypt_abi.json");
+const CryptoZombiesABI = require("../contracts/cryptozombies_abi.json");
 
 const settings = {
   rules: [
-    //example of a generic/standard verification rule
-    //checks whether the signers wallet holds at least 1 
-    //token from the specified contract
-    // {
-    //   name: "Baby Mice",
-    //   roleId: "918771367074201631",
-    //   executor: {
-    //     type: "GenericContractVerificationRule.js",
-    //     config: {
-    //       contractAddress: "0x15cc16bfe6fac624247490aa29b6d632be549f00",
-    //       contractAbi: AnonymiceBreedingABI,
-    //       method: "balanceOf",
-    //     },
-    //   },
-    // },
     // completely customized verification rule
     {
-      name: "Anonymice Verifier",
+      name: "Crypto Zombies Verifier",
       executor: {
-        type: "AnonymiceVerificationRule.js",
+        type: "CryptoZombiesVerificationRule.js",
         config: {
           roles: [
             {
-              name: "Genesis Mice",
-              id: "918771246651572266"
+              name: "Zombie Krakenz",
+              id: "924727845211734016"
             },
             {
-              name: "Baby Mice",
-              id: "918771367074201631"
+              name: "Zombie Whalez",
+              id: "924727788055961673"
             },
             {
-              name: "Alpha Mice",
-              id: "917141311100964915"
+              name: "Zombie Orcaz",
+              id: "924728098732277790"
+            },
+            {
+              name: "The Hoarde",
+              id: "924728162779271209"
             }
           ],
-          AnonymiceContract: {
-            Address: "0xC7492fDE60f2eA4DBa3d7660e9B6F651b2841f00",
-            ABI: AnonymiceABI,
+          ZombieCryptContract: {
+            Address: "0xe21a40ae500E2e08f82b5E354bF3beF58f5F4A7E",
+            ABI: ZombieCryptABI,
           },
-          CheethContract: {
+          CryptoZombiesContract: {
             Address: "0x5f7BA84c7984Aa5ef329B66E313498F0aEd6d23A",
-            ABI: CheethABI,
+            ABI: CryptoZombiesABI,
           },
-          AnonymiceBreedingContract: {
-            Address: "0x15cc16bfe6fac624247490aa29b6d632be549f00",
-            ABI: AnonymiceBreedingABI,
-          }
         },
       },
     },

@@ -75,20 +75,26 @@ express routes - stats/utilities
 ##############################################################################*/
 /* stats */
 
-// retrieves the total number mice (genesis and baby) a verified user holds
 app.get("/api/stats/total", async (req, res) => {
   statsApiController.getTotal(req, res);
 });
 
-// retrieves the number of genesis mice a verified user holds
-app.get("/api/stats/mice", async (req, res) => {
-  statsApiController.getGenesis(req, res);
+app.get("/api/stats/getTheHoarde", async (req, res) => {
+  statsApiController.getTheHoarde(req, res);
 });
 
-// retrieves the number of baby mice a verified user holds
-app.get("/api/stats/babymice", async (req, res) => {
-  statsApiController.getBabies(req, res);
+app.get("/api/stats/getOrcaz", async (req, res) => {
+  statsApiController.getOrcaz(req, res);
 });
+
+app.get("/api/stats/getWhalez", async (req, res) => {
+  statsApiController.getWhalez(req, res);
+});
+
+app.get("/api/stats/getKrakenz", async (req, res) => {
+  statsApiController.getKrakenz(req, res);
+});
+
 
 // retrieves the total number of signature verification requests the system has served
 app.get("/api/stats/verifications", async (req, res) => {

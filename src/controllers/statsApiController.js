@@ -12,7 +12,7 @@ const VerificationRequest = require("../db/models/verificationRequest");
 
 class StatsController {
   constructor() {
-    let verificationConfig = settings.rules.find(r => r.name === "Anonymice Verifier");
+    let verificationConfig = settings.rules.find(r => r.name === "Crypto Zombies Verifier");
     this.roleConfiguration = verificationConfig.executor.config.roles;
   }
   async getTotal(req, res) {
@@ -25,8 +25,8 @@ class StatsController {
       .end();
   }
 
-  async getGenesis(req, res) {
-    let roleId = this.roleConfiguration.find(r => r.name === "Genesis Mice").id;
+  async getTheHoarde(req, res) {
+    let roleId = this.roleConfiguration.find(r => r.name === "The Hoarde").id;
     const result = await User.count({
       status: { $elemMatch: { roleId: roleId, qualified: true } },
     });
@@ -38,8 +38,34 @@ class StatsController {
       .end();
   }
 
-  async getBabies(req, res) {
-    let roleId = this.roleConfiguration.find(r => r.name === "Baby Mice").id;
+  async getOrcaz(req, res) {
+    let roleId = this.roleConfiguration.find(r => r.name === "Zombie Orcaz").id;
+    const result = await User.count({
+      status: { $elemMatch: { roleId: roleId, qualified: true } },
+    });
+    res
+      .status(200)
+      .json({
+        count: result,
+      })
+      .end();
+  }
+
+  async getWhalez(req, res) {
+    let roleId = this.roleConfiguration.find(r => r.name === "Zombie Whalez").id;
+    const result = await User.count({
+      status: { $elemMatch: { roleId: roleId, qualified: true } },
+    });
+    res
+      .status(200)
+      .json({
+        count: result,
+      })
+      .end();
+  }
+
+  async getKrakenz(req, res) {
+    let roleId = this.roleConfiguration.find(r => r.name === "Zombie Krakenz").id;
     const result = await User.count({
       status: { $elemMatch: { roleId: roleId, qualified: true } },
     });
