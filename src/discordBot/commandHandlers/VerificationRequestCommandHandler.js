@@ -60,7 +60,7 @@ class VerificationRequestCommandHandler {
 
     // send verification link to user
     await interaction.reply({
-      content: "To verify your Mice, please sign a message using your wallet!",
+      content: "To verify, please sign a message using your wallet!",
       components: [row],
       ephemeral: true,
     });
