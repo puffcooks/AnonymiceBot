@@ -19,19 +19,19 @@ const settings = {
           roles: [
             {
               name: "Zombie Krakenz",
-              id: "924727845211734016"
+              id: "901737568033464321"
             },
             {
               name: "Zombie Whalez",
-              id: "924727788055961673"
+              id: "901336303587704832"
             },
             {
               name: "Zombie Orcaz",
-              id: "924728098732277790"
+              id: "900248027682439168"
             },
             {
-              name: "The Hoarde",
-              id: "924728162779271209"
+              name: "The Horde",
+              id: "900247379113021460"
             }
           ],
           ZombieCryptContract: {

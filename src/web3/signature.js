@@ -3,7 +3,6 @@ const { utils, Contract } = require("ethers");
 
 const verifySignature = async (message) => {
   const infuraProvider = await getProvider(message);
-
   const result = await validate(message, infuraProvider);
   const verifiedMessage = await result;
 

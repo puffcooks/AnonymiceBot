@@ -13,8 +13,7 @@ const uuid = require("uuid");
 const VerificationRequest = require("../../db/models/verificationRequest");
 
 const VERIFICATION_COMMAND = "join";
-const VERIFICATION_COMMAND_DESCRIPTION =
-  "Verify to receive channel access!";
+const VERIFICATION_COMMAND_DESCRIPTION = "Verify to receive channel access!";
 
 class VerificationRequestCommandHandler {
   constructor() {

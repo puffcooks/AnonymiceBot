@@ -2,16 +2,7 @@ require("../utils/arrays");
 const config = require("../config");
 const fs = require("fs");
 const path = require("path");
-let useDevSettings = false;
-if (
-  config.envName === "development" &&
-  fs.existsSync(path.join(__dirname, "../config/settings.development.js"))
-) {
-  useDevSettings = true;
-}
-const settings = useDevSettings
-  ? require("../config/settings.development")
-  : require("../config/settings");
+const settings = require("../config/settings");
 const logger = require("../utils/logger");
 const DiscordBot = require("../discordBot");
 
@@ -42,8 +33,11 @@ class RuleExecutor {
     if(!discordUser || !discordUser.roles)
         throw Error(`RuleExecutor.run could not fetch the specific`)
 
+    // Check once
+    const result = await this.rules[0].executor.check(user);
+    console.log('result', result)
     await this.rules.forEachAsync(async (rule) => {
-      rule.result = await rule.executor.check(user);
+      rule.result = result;
     });
 
     //retrieve users full list of roles for logging

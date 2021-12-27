@@ -79,8 +79,8 @@ app.get("/api/stats/total", async (req, res) => {
   statsApiController.getTotal(req, res);
 });
 
-app.get("/api/stats/getTheHoarde", async (req, res) => {
-  statsApiController.getTheHoarde(req, res);
+app.get("/api/stats/getTheHorde", async (req, res) => {
+  statsApiController.getTheHorde(req, res);
 });
 
 app.get("/api/stats/getOrcaz", async (req, res) => {

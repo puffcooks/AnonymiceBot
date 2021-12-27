@@ -26,15 +26,15 @@ class CryptoZombiesVerificationRule {
     //if any one fails, others will still be processed
 
     let totalZombies = result.holding + result.staking;
-    let qualifiesForHoarde = totalZombies > 0;
+    let qualifiesForHorde = totalZombies > 0;
     let qualifiesForOrcaz = totalZombies >= 7;
     let qualifiesForWhalez = totalZombies >= 15;
     let qualifiesForKrakenz = totalZombies >= 50;
 
-    //execute - the hoarde
+    //execute - the horde
     try {
       let roleConfig = this.config.roles.find(
-        (r) => r.name === "The Hoarde"
+        (r) => r.name === "The Horde"
       );
       let discordRoleInstance = discordRoles.find(
         (r) => r.id === roleConfig.id
@@ -42,12 +42,12 @@ class CryptoZombiesVerificationRule {
       await this.manageRoles(
         discordUser, // discord user
         discordRoleInstance, //guild instance
-        qualifiesForHoarde
+        qualifiesForHorde
       );
       executionResults.push({
-        role: "The Hoarde",
+        role: "The Horde",
         roleId: discordRoleInstance.id,
-        qualified: qualifiesForHoarde,
+        qualified: qualifiesForHorde,
         result: {
           holding: result.holding,
           staking: result.staking
@@ -172,7 +172,7 @@ class CryptoZombiesVerificationRule {
       let role = await guild.roles.fetch(r.id, { force: true });
       if (!role) {
         logger.error(
-          `Could not find the role id configured for ${r.name}. Please confirm your configuration.`
+          `Could not locate the discord role for id ${r.id} (${r.name}). Please confirm your configuration.`
         );
         return;
       }
@@ -231,13 +231,12 @@ Result:       ${result}`;
     return result.length;
   }
 
-
   //todo: cleanup return values arent consumed
 
   async manageRoles(discordUser, role, qualifies) {
     if (!role) {
       logger.error(
-        `Could not locate the ${roleName} discord role using id ${roleId} specified. Please confirm your configuration.`
+        `Could not locate the ${role.name} discord role using id ${role.id} specified. Please confirm your configuration.`
       );
       return false;
     }

@@ -76,16 +76,6 @@ const generateMessage = async () => {
   return message;
 };
 
-const amountOfMemes = 5;
-let memeIdx = 0;
-const nextMeme = () => {
-  memeIdx += 1;
-  if (memeIdx > amountOfMemes) {
-    memeIdx = 1;
-  }
-  $(".meme-img").attr("src", "assets/images/meme_" + memeIdx + ".png");
-};
-
 const signMessage = async () => {
   let message = await generateMessage();
   let jsonMessage = JSON.stringify(message);

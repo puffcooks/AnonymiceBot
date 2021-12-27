@@ -2,11 +2,7 @@ const logger = require("../utils/logger");
 const config = require("../config");
 const fs = require("fs");
 const path = require("path")
-let useDevSettings = false;
-if(config.envName === "development" && fs.existsSync(path.join(__dirname, "../config/settings.development.js"))) {
-  useDevSettings = true;
-}
-const settings = useDevSettings ? require("../config/settings.development") : require("../config/settings");
+const settings = require("../config/settings");
 const User = require("../db/models/user");
 const VerificationRequest = require("../db/models/verificationRequest");
 
@@ -25,8 +21,8 @@ class StatsController {
       .end();
   }
 
-  async getTheHoarde(req, res) {
-    let roleId = this.roleConfiguration.find(r => r.name === "The Hoarde").id;
+  async getTheHorde(req, res) {
+    let roleId = this.roleConfiguration.find(r => r.name === "The Horde").id;
     const result = await User.count({
       status: { $elemMatch: { roleId: roleId, qualified: true } },
     });

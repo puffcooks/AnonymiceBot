@@ -24,7 +24,6 @@ class GenericContractVerificationRule {
    */
   async execute(discordUser, role, result) {
     try {
-
       if (!role) {
         this.logger.info("Role not found, please make sure to use the correct role id.")
         return;
